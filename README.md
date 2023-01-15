@@ -1,5 +1,5 @@
 # Experiment--04-Implementation-of-combinational-logic-using-universal-gates
-Implementation of combinational logic using universal-gates
+## Implementation of combinational logic using universal-gates
  
 ## AIM:
 To implement the given logic function using NAND and NOR gates and to verify its operation in Quartus using Verilog programming.
@@ -26,18 +26,54 @@ NOR gate is actually a combination of two logic gates: OR gate followed by NOT g
 
 F=(((C.B'.A)+(D.C'.A)+(C.B'.A))')'
 
-## Logic Diagram
 ## Procedure
 ## Program:
-/*
-Program to implement the given logic function using NAND and NOR gates and to verify its operations in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
-## RTL realization
 
+### Program to implement the given logic function using NAND and NOR gates and to verify its operations in quartus using Verilog programming.
+```
+Developed by: A.Ashiwn Kumar
+RegisterNumber:  22001702
+
+Using NAND Operation:
+
+module comb1(A,B,C,D,F);
+input A,B,C,D;
+output F;
+wire P,Q,R;
+assign P = C&(~B)&(~A);
+assign Q = D&(~C)&(~A);
+assign R = (~C)&B&(~A);
+assign F = (~P&~Q&~R);
+endmodule
+
+Using NOR Operation:
+
+module comb2(A,B,C,D,F);
+input A,B,C,D;
+output F;
+wire P,Q,R,S;
+assign P = C&(~B)&A;
+assign Q = D&(~C)&A;
+assign R = C&(~B)&A;
+assign S = ~(P|Q|R);
+assign F = ~S;
+endmodule
+```
 ## Output:
-## RTL
-## Timing Diagram
+# NAND
+## RTL realization:
+![output](a.png)
+## Timing Diagram:
+![output](b.png)
+## truth table:
+![output](c.png)
+
+# NOR
+## RTL realization:
+![output](d.png)
+## Timing Diagram:
+![output](e.png)
+## truth table:
+![output](f.png)
 ## Result:
 Thus the given logic functions are implemented using NAND and NOR gates and their operations are verified using Verilog programming.
